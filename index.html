@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <title>Cartelera del Discord</title>
-    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale="1.0">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Cartelera del Discord</h1>
-
-    <div class="botones">
-        <button id="btn-todas" onclick="dibujarGrilla('Todas', 'btn-todas')">Todas</button>
-        <button id="btn-proxima" onclick="dibujarGrilla('Próxima', 'btn-proxima')">Próxima</button>
-        <button id="btn-vista" onclick="dibujarGrilla('Vista', 'btn-vista')">Vista</button>
-        <button id="btn-votacion" onclick="dibujarGrilla('Votación', 'btn-votacion')">Votación</button>
+    
+    <div id="modal" class="modal-overlay">
+        <div class="modal-contenido">
+            <button id="modal-cerrar"></button>
+            <div id="modal-info"></div>
+        </div>
     </div>
+    <div class="contenedor">
 
-    <div id="banner"></div>
+        <h1>Cartelera del Discord</h1>
 
-    <div id="grilla" class="grilla"></div>
+        <div class="botones">
+            <button id="btn-todas" onclick="dibujarGrilla('Todas', 'btn-todas')">Todas</button>
+            <button id="btn-proxima" onclick="dibujarGrilla('Próxima', 'btn-proxima')">Próxima</button>
+            <button id="btn-vista" onclick="dibujarGrilla('Vista', 'btn-vista')">Vista</button>
+            <button id="btn-votacion" onclick="dibujarGrilla('Votación', 'btn-votacion')">Votación</button>
+        </div>
 
-    <script src="script.js"></script>
+        <div id="banner"></div>
+
+        <div id="grilla" class="grilla"></div>
+
+        <script src="script.js"></script>
+    
+    </div>
 </body>
 </html>

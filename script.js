@@ -19,7 +19,15 @@ const pelis = [
         titulo: "Mad Max: Fury Road",
         genero: "Acción",
         fecha: "Por votar",
-        fechaReal: "null",
+        fechaReal: null,
+        estado: "Votación",
+        portada: "https://image.tmdb.org/t/p/w600_and_h900_face/hA2ple9q4qnwxp3hKVNhroipsir.jpg"
+    },
+    {
+        titulo: "Mad Max: Fury Road",
+        genero: "Acción",
+        fecha: "Por votar",
+        fechaReal: "2026-05-20",
         estado: "Votación",
         portada: "https://image.tmdb.org/t/p/w600_and_h900_face/hA2ple9q4qnwxp3hKVNhroipsir.jpg"
     }
@@ -40,38 +48,35 @@ function proximaFuncion() {
     const hoy = new Date();
     let proximaMasCercana = null;
     let fechaMasCercana = null;
-    let proxima = "";
-
-    for (let i = 0; i < pelis.length; i++) {
-        const proximaFuncion = pelis[i];
         
-        for (let i = 0; i < pelis.length; i++) {
-            const p = pelis[i];
-            const fechaPeli = new Date(p.fechaReal);
+    for (let i = 0; i < pelis.length; i++) {
+        const p = pelis[i];
+        const fechaPeli = p.fechaReal ? new Date(p.fechaReal) : null;
 
-            if (fechaPeli > hoy) {
-                if (fechaMasCercana === null || fechaPeli < fechaMasCercana) {
-                    proximaMasCercana = p;
-                    fechaMasCercana = fechaPeli;
-                    }
-                }
+
+        if (fechaPeli > hoy) {
+            if (fechaMasCercana === null || fechaPeli < fechaMasCercana) {
+                proximaMasCercana = p;
+                fechaMasCercana = fechaPeli;
             }
+        }
     }
 
-        if (proximaMasCercana !== null) {
-            proxima +=`
-                <div class="banner">
-                    <p class="banner-label">¡Próxima función!</p>
-                        <div class="banner-info">
-                            <h2>${proximaFuncion.titulo}</h2>
-                            <div class="banner-masInfo">
-                                <p>Género: ${proximaFuncion.genero}</p>
-                                <p>Fecha: ${proximaFuncion.fecha}</p>
-                            </div>
+
+    if (proximaMasCercana !== null) {
+        proxima +=`
+            <div class="banner">
+                <p class="banner-label">¡Próxima función!</p>
+                    <div class="banner-info">
+                        <h2>${proximaMasCercana.titulo}</h2>
+                        <div class="banner-masInfo">
+                            <p>Género: ${proximaMasCercana.genero}</p>
+                            <p>Fecha: ${proximaMasCercana.fecha}</p>
                         </div>
-                </div>
-            `;
-        }
+                    </div>
+            </div>
+        `;
+    }
     banner.innerHTML = proxima;
 }
 

@@ -4,11 +4,16 @@
     padding: 0;
 }
 
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #1a1a2e;
     color: white;
-    padding: 2rem;
 }
 
 h1 {
@@ -44,7 +49,6 @@ button.activo {
     border: 1px solid #7ab8f5;
     border-radius: 10px;
     padding: 16px 20px;
-    margin-bottom: 1.5rem;
     margin: 0 auto 1.5rem;
     display: flex;
     align-items: center;
@@ -57,29 +61,23 @@ button.activo {
     gap: 24px;
 }
 
-.banner-info p {
+.banner-info p, .banner-masInfo p {
     margin: 4px 0;
     font-size: 14px;
     color: #aaa;
 }
 
 .banner-info h2 {
-    margin: 0 0 4px;
     font-size: 20px;
 }
 
-.banner-masInfo p {
-    font-size: 14px;
-    color: #aaa;
-    margin: 4px 0;
-}
 
 .banner-label {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #7ab8f5;
-    margin: 0 0 4px !important;
+    margin: 0 0 4px;
     white-space: nowrap;
     border-right: 1px solid #7ab8f5;
     padding-right: 16px;
@@ -87,9 +85,8 @@ button.activo {
 
 .grilla {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 16px;
-    max-width: 850px;
 }
 
 .tarjeta {
@@ -144,11 +141,7 @@ button.activo {
 }
 
 @media (max-width: 768px) {
-    .grilla {
-        grid-template-columns: 1fr 1fr;
-        max-width: 650px;
-    }
-    
+
     .banner {
         flex-direction: column;
         text-align: center;
@@ -161,10 +154,12 @@ button.activo {
         padding-bottom: 12px;
         margin-right: 0;
         margin-bottom: 4px;
+        width: 100%;
+        text-align: center;
    }
 
    .tarjeta-info {
-        padding: 8px;
+        gap: 8px;
    }
 
    .tarjeta-info h2 {
@@ -196,6 +191,13 @@ button.activo {
     button {
         margin-right: 0;
         padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .tarjeta img {
+        aspect-ratio: 16/9;
     }
 
 }
