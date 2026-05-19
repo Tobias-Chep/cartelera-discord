@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: white;
+    padding: 2rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+.botones {
+    margin-bottom: 1.5rem;
+}
+
+button {
+    background-color: #16213e;
+    color: white;
+    border: 1px solid #444;
+    padding: 8px 16px;
+    margin-right: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: #0f3460;
+}
+
+button.activo {
+    background-color: #0f3460;
+    border-color: #7ab8f5;
+    color: #7ab8f5;
+}
+
+.banner {
+    background-color: #0f3460;
+    border: 1px solid #7ab8f5;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.banner-info {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.banner-info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.banner-info h2 {
+    margin: 0 0 4px;
+    font-size: 20px;
+}
+
+.banner-masInfo p {
+    font-size: 14px;
+    color: #aaa;
+    margin: 4px 0;
+}
+
+.banner-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #7ab8f5;
+    margin: 0 0 4px !important;
+    white-space: nowrap;
+    border-right: 1px solid #7ab8f5;
+    padding-right: 16px;
+}
+
+.grilla {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 850px;
+}
+
+.tarjeta {
+    background-color: #16213e;
+    border: 1px solid #444;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tarjeta img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+}
+
+.tarjeta-info {
+    padding: 12px;
+}
+
+.tarjeta-info h2 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.tarjeta-info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.badge-proxima {
+    background-color: #1a4a7a;
+     color: #7ab8f5;
+}
+.badge-vista {
+    background-color: #1a4a2a;
+    color: #7af5a0;
+}
+.badge-votacion {
+    background-color: #4a3a1a;
+    color: #f5c97a;
+}
+
+@media (max-width: 768px) {
+    .grilla {
+        grid-template-columns: 1fr 1fr;
+        max-width: 650px;
+    }
+    
+    .banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-label {
+        border-right: none;
+        border-bottom: 1px solid #7ab8f5;
+        padding-right: 0;
+        padding-bottom: 12px;
+        margin-right: 0;
+        margin-bottom: 4px;
+   }
+
+   .tarjeta-info {
+        padding: 8px;
+   }
+
+   .tarjeta-info h2 {
+        font-size: 14px;
+   }
+
+   .tarjeta-info p {
+        font-size: 13px;
+   }
+
+    .tarjeta img {
+        aspect-ratio: 2/3;
+        object-fit: cover;
+        display: block;
+        object-position: center;
+    }
+
+    .badge {
+        font-size: 12px;
+        padding: 3px 7px;
+    }
+
+    .botones {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    button {
+        margin-right: 0;
+        padding: 10px;
+    }
+
+}

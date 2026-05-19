@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cartelera del Discord</title>
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Cartelera del Discord</h1>
+
+    <div class="botones">
+        <button id="btn-todas" onclick="dibujarGrilla('Todas', 'btn-todas')">Todas</button>
+        <button id="btn-proxima" onclick="dibujarGrilla('Próxima', 'btn-proxima')">Próxima</button>
+        <button id="btn-vista" onclick="dibujarGrilla('Vista', 'btn-vista')">Vista</button>
+        <button id="btn-votacion" onclick="dibujarGrilla('Votación', 'btn-votacion')">Votación</button>
+    </div>
+
+    <div id="banner"></div>
+
+    <div id="grilla" class="grilla"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
