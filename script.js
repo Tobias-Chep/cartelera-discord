@@ -35,12 +35,39 @@ const pelis = [
 
 const grilla = document.getElementById("grilla");
 const banner = document.getElementById("banner");
+const modal = document.getElementById("modal");
+const modalInfo = document.getElementById("modal-info");
+const modalCerrar = document.getElementById("modal-cerrar");
 
 function classBadge(estado) {
     if (estado === "Próxima") return "badge-proxima";
     if (estado === "Vista") return "badge-vista";
     if (estado === "Votación") return "badge-votacion";
 }
+
+function abrirModal(i) {
+    const p = pelis[i];
+    modalInfo.innerHTML = `
+    <img src="${p.portada}" alt="${p.titulo}" style="width:100%; border-radius:6px; margin-bottom:12px;">
+    <h2>${p.titulo}</h2>
+    <p>Género: ${p.genero}</p>
+    <p>Fecha: ${p.fecha}</p>
+    <span class="badge ${classBadge(p.estado)}">${p.estado}</span>
+    `;
+    modal.classList.add("visible");
+}
+
+function cerrarModal() {
+    modal.classList.remove("visible");
+}
+
+modalCerrar.addEventListener("click", cerrarModal);
+
+modal.addEventListener("click", function(e) {
+    if (e.target === modal) {
+        cerrarModal();
+    }
+})
 
 function proximaFuncion() {
 
@@ -100,7 +127,7 @@ function dibujarGrilla(filtro, idBoton) {
         }
 
         html += `
-            <div class="tarjeta">
+            <div class="tarjeta" onclick="abrirModal(${i})">
                 <img src="${p.portada}" alt="${p.titulo}">
                 <div class="tarjeta-info">
                     <h2>${p.titulo}</h2>
