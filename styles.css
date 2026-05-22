@@ -19,6 +19,40 @@
 
 .modal-overlay.visible {
     display: flex;
+
+}
+
+#modal-tarjeta {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#modal-tarjeta img {
+    width: 160px;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+#modal-datos {
+    display: flex 1;
+}
+
+#modal-datos h2 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+#modal-datos p {
+    font-size: 14px;
+    color: #aaa;
+    margin: 4px 0;
+}
+
+#sinopsis {
+    margin-top: 12px !important;
+    line-height: 1.6;
+    color: white !important;
 }
 
 .modal-contenido {
@@ -29,6 +63,8 @@
     max-width: 400px;
     width: 90%;
     position: relative;
+    max-width: 30vw;
+    overflow-x: auto;
 }
 
 #modal-cerrar {

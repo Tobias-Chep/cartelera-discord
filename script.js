@@ -45,16 +45,29 @@ function classBadge(estado) {
     if (estado === "Votación") return "badge-votacion";
 }
 
-function abrirModal(i) {
+async function abrirModal(i) {
     const p = pelis[i];
     modalInfo.innerHTML = `
-    <img src="${p.portada}" alt="${p.titulo}" style="width:100%; border-radius:6px; margin-bottom:12px;">
-    <h2>${p.titulo}</h2>
-    <p>Género: ${p.genero}</p>
-    <p>Fecha: ${p.fecha}</p>
-    <span class="badge ${classBadge(p.estado)}">${p.estado}</span>
+    <article id="modal-tarjeta">
+        <img src="${p.portada}" alt="${p.titulo}" style="width:100%; border-radius:6px; margin-bottom:12px;">
+        <section id="modal-datos">
+            <h2>${p.titulo}</h2>
+            <p>Género: ${p.genero}</p>
+            <p>Fecha: ${p.fecha}</p>
+            <span class="badge ${classBadge(p.estado)}">${p.estado}</span>
+            <p id="sinopsis">Cargando...</p>
+            <p id="puntaje"></p>
+        </section>
+    </article>
     `;
+
     modal.classList.add("visible");
+
+    const tmdb = await traerDatosTMDB(p.titulo);
+    if (tmdb) {
+        document.getElementById("sinopsis").textContent = tmdb.overview;
+        document.getElementById("puntaje").textContent = `⭐ ${tmdb.vote_average.toFixed(1)}`;
+    }
 }
 
 function cerrarModal() {
@@ -140,6 +153,19 @@ function dibujarGrilla(filtro, idBoton) {
     }
 
     grilla.innerHTML = html;
+}
+
+async function traerDatosTMDB(titulo) {
+    const apiKey = "66f147e77eb6e13e786d5aa45cd63c05";
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${titulo}&language=es-ES`;
+
+    const respuesta = await fetch(url);
+    const datos = await respuesta.json();
+
+    if (datos.results.length > 0) {
+        return datos.results[0];
+    }
+    return null;
 }
 
 dibujarGrilla("Todas", "btn-todas");
